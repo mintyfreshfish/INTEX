@@ -3,7 +3,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class JobOrganization(models.Model):
     company_name = models.CharField(max_length=50)
-    company_email = models.CharField(max_length=25)
+    company_email = models.CharField(max_length=50)
     company_phone = models.CharField(max_length=10)
     street_address = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
@@ -18,15 +18,15 @@ class JobOrganization(models.Model):
 class JobListing(models.Model):
     job_title = models.CharField(max_length=50)
     city = models.CharField(max_length=50, default='NULL')
-    contracts = models.CharField(max_length=10)
-    description = models.CharField(max_length=3000)
+    contracts = models.CharField(max_length=50)
+    description = models.CharField(max_length=10000)
     organization = models.ForeignKey(JobOrganization, on_delete=models.CASCADE)
 
     def __str__(self):
-        return (self.job_title)
+        return (self.job_title + '*' + self.organization.company_name)
 
 class JobApplicant(models.Model):
-    applicant_email = models.CharField(max_length=25)
+    applicant_email = models.CharField(max_length=50)
     applicant_phone = models.CharField(max_length=10)
     username = models.CharField(max_length=25)
     first_name = models.CharField(max_length=50)

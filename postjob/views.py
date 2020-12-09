@@ -42,10 +42,12 @@ def storeJobPageView(request) :
         new_job.contracts = request.POST.get('contracts')
         new_job.description = request.POST.get('description')
 
+        displayjobs = request.POST.get('job_title')
+
         #Save the job record
         new_job.save()
     
-    data = JobListing.objects.all()
+    data = JobListing.objects.filter(job_title=displayjobs)
     context = {
         "job_listings" : data
     }
@@ -64,12 +66,12 @@ def removeJobPageView(request) :
 def resultJobPageView(request) :
     job = JobListing.objects.filter(job_title=request.GET['job_title'], city=request.GET['city'])
      
-    data = JobListing.objects.all()
+    #data = JobListing.objects.all()
 
     if job.count() > 0:
         JobListing.objects.filter(job_title=request.GET['job_title'], city=request.GET['city']).delete() 
         context = {
-            "job_listings" : data
+            "job_listings" : job
         }
         return render(request, 'postjob/displayRemovedJobs.html', context)  
     else:
@@ -97,10 +99,9 @@ def returnJobPageView(request) :
         for  obj in job:
             obj.description = sNewDescription
             obj.save()         
-        
-        data = JobListing.objects.all()
+
         context = {
-            "job_listings" : data
+            "job_listings" : job
         }
         return render(request, 'postjob/returnJobPage.html', context)  
     

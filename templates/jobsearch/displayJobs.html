@@ -14,17 +14,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2 class="text-white mb-4">Job List</h2>
-                <p class="text-white-50">
-                    Below is your searched Job
+                <h2 class="b strong">Job List</h2>
+                <p class="b strong">
+                    Below is the results of your search
                 </p>
                 {% for job in job_list %}
                     <p class="b strong">
                         Job Title: {{ job.job_title }}<br>
                         Location: {{ job.city }} <br>
-                        Description: {{ job.description }} <br>
+                        Description: {{ job.description }} <br><br>
                     </p>  
                 {% endfor %} 
+                {% for l in loop%}
+                    <p>{{l}}</p>
+                {% endfor%}
 
 
             </div>
