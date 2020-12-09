@@ -10,8 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-import django_heroku
-import dj_database_url
 from pathlib import Path
 import os
 
@@ -23,14 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "pickes"
-EMAIL_HOST_USER=os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+SECRET_KEY = 'pc6pro1@+k8nn2lgnm-5rn(8mjw4&@9xziu=u16+%83_ulq+nj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','localhost','127.0.0.1','bcrjobs.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -44,8 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'homepages.apps.HomepagesConfig',
     'jobsearch.apps.JobsearchConfig',
-    'postjob.apps.PostjobConfig',
-    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +50,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'bcrjobs.urls'
@@ -88,12 +81,11 @@ DATABASES = {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'bcrcareers',
     'USER': 'postgres',
-    'PASSWORD': 'littleElephant',
+    'PASSWORD': 'byu73annaehr3',
     'HOST': 'localhost',
+    'PORT': '5433'
     }
 }
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -137,8 +129,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'bcrjobs/static')
 ]
-
-MEDIA_URL='/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-django_heroku.settings(locals())

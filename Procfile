@@ -1,1 +1,0 @@
-web: gunicorn bcrjobs.wsgi
