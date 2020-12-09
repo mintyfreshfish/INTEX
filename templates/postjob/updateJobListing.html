@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Search Job Listing to Update</div>
+    </div>
+</header>
+
+<section class="about-section text-center" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="b strong">Update Job Listing</h2>
+                <p class="b strong">
+                    Search for a Job to Update
+                </p>
+
+                <form name="form" method="get" action="{% url 'returnjob' %}">
+                <label class="b strong" for='job_title'>Enter Job Title:</label>
+                <input type="text" name='job_title' id='job_title'>
+                <br><br>
+                <label class="b strong" for='city'>Enter City:</label>
+                <input type="text" name='city' id='city'>
+                <br><br>
+                <label class="b strong" for='new_description'>Enter new Job Description:</label>
+                <input type="text" name='new_description' id='new_description'> 
+                <br><br>
+                <button type="submit">Update</button>
+                <br><br>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}   

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Welcome to BCR!</div>
+        <div class="masthead-heading text-uppercase">Employee Portal</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'findjobs' %}">Search Jobs</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'recommender' %}">Recommend Jobs</a>
+    </div>
+</header>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Careers Start Here</div>
+        <div class="masthead-heading text-uppercase">Job List</div>
+    </div>
+</header>
+
+<section class="about-section text-center" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-white mb-4">Job List</h2>
+                <p class="text-white-50">
+                    Below is your searched Job
+                </p>
+                {% for job in job_list %}
+                    <p class="b strong">
+                        Job Title: {{ job.job_title }}<br>
+                        Location: {{ job.city }} <br>
+                        Description: {{ job.description }} <br>
+                    </p>  
+                {% endfor %} 
+
+
+            </div>
+        </div>
+        <!--<img class="img-fluid" src="{% static 'img/busters.jpg' %}" alt="" />-->
+    </div>
+</section>
+
+{% endblock %}   

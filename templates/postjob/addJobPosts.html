@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Company Portal</div>
+        <div class="masthead-heading text-uppercase">Add Job Listing</div>
+    </div>
+</header>
+
+<section class="about-section text-center" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="b strong">Post a Job</h2>
+                <p class="b strong">
+                    Post New Job Listings Here
+                </p>
+
+                <form name="form" method="post" action="{% url 'storejob' %}">
+                    {% csrf_token %}
+                    <h3 class="b strong">Enter Your Company Information:</h3><br>
+                    <label class="b strong" for='company_name'>Enter the Company Name:</label>
+                    <input type="text" name='company_name' id='company_name'>
+                    <br><br>
+                    <label class="b strong" for='email'>Enter the email:</label>
+                    <input type="text" name='email' id='email'>
+                    <br><br>
+                    <label class="b strong" for='phone'>Enter the phone:</label>
+                    <input type="text" name='phone' id='phone'>
+                    <br><br>
+                    <label class="b strong" for='street_address'>Enter the street address:</label>
+                    <input type="text" name='street_address' id='street_address'>
+                    <br><br>
+                    <label class="b strong" for='city'>Enter the city:</label>
+                    <input type="text" name='city' id='city'>
+                    <br><br>
+                    <label class="b strong" for='state'>Enter the state:</label>
+                    <input type="text" name='state' id='state'>
+                    <br><br>
+                    <label class="b strong" for='zip'>Enter the zip code:</label>
+                    <input type="text" name='zip' id='zip'>
+                    <br><br>
+                    <label class="b strong" for='size'>Enter the size:</label>
+                    <input type="text" name='size' id='size'>
+                    <br><br>
+                    <label class="b strong" for='sector'>Enter the sector:</label>
+                    <input type="text" name='sector' id='sector'>
+                    <br><br>
+                    <br><br>
+                    <h3 class="b strong">Enter the Job Position Information:</h3><br>
+                    <label class="b strong" for='job_title'>Enter the Job Title:</label>
+                    <input type="text" name='job_title' id='job_title'>
+                    <br><br>
+                    <label class="b strong" for='city'>Enter the City:</label>
+                    <input type="text" name='city' id='city'> 
+                    <br><br>
+                    <label class="b strong" for='contracts'>Enter Contracts:</label>
+                    <input type="text" name='contracts' id='contracts'>    
+                    <br><br>    
+                    <label class="b strong" for='description'>Enter Job Description:</label>
+                    <input type="text" name='description' id='description'>    
+                    <br><br>                     
+                    <button type="submit">Add Job Listing</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}    

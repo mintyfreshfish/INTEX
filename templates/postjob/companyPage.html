@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Welcome to BCR!</div>
+        <div class="masthead-heading text-uppercase">Company Portal</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'addjob' %}">Post Job Listing</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'updatejob' %}">Update Job Listing</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'removejob' %}">Remove Job Listing</a><br><br>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'recommender2' %}">Applicant Recommender</a>
+
+    </div>
+</header>
+
+{% endblock %}
